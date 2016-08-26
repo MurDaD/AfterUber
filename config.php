@@ -58,6 +58,6 @@ Settings::set('datetime_format','Y-m-d H:i:s');
  * TODO: replace access data
  */
 Settings::set('api_url','api.uber.com');
-Settings::set('api_client_id','v6segMoIpIuOPVZ8CPtZTqwn6QVK1zV');
-Settings::set('api_client_secret','g70zXIqQdyb2jDdEE3m5u1clhl0a6Tf_LtbfzIw');
-Settings::set('api_token','rXFtyR-_8FnRpknNVFkDlkb1Psi_B-bdVa2mD_Pf');
+Settings::set('api_client_id','');
+Settings::set('api_client_secret','');
+Settings::set('api_token','');
