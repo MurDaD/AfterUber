@@ -70,6 +70,10 @@ class APIHelper
         return $this->auth_key;
     }
 
+    /**
+     * Returns current url API will knock to
+     * @return mixed
+     */
     public function getUrl()
     {
         return $this->url;

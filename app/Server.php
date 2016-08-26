@@ -111,6 +111,11 @@ class Server extends API
         return number_format($price / 100 * (100 - $this->discount), 2);
     }
 
+    /**
+     * Return local API error
+     *
+     * @param $message
+     */
     private function returnError($message)
     {
         $this->result = [
