@@ -7,9 +7,12 @@ var end_latitude;
 var end_longitude;
 var $providers_container;
 var loading = false;
+var $loading;
 
 $(document).ready(function(){
     $providers_container = $(".providers");
+    $loading = $(".loading");
+
     $("#request").on("submit", function(e){
         e.preventDefault();
         if(!loading) {
@@ -118,9 +121,11 @@ function APIgetEstimate(start_latitude, start_longitude, end_latitude, end_longi
             if(!apiError(data)) {
                 if(data.result.length > 0) {
                     $.each(data.result, function (index, value) {
-                        var $provider = $('<div id="provider-' + index + '">' +
-                            '<h1>' + value.name +'</h1>' +
-                            '<span>' + value.estimate + '</span>' +
+                        var $provider = $('<div id="provider-' + index + '" class="col-md-3">' +
+                            '<div class="panel panel-success">' +
+                            '<div class="panel-heading">' + value.name +'</div>' +
+                            '<div class="panel-body"> ' + value.estimate + '</div>' +
+                            '</div>' +
                             '</div>');
                         console.log($provider.html());
                         $providers_container.append($provider);
@@ -182,6 +187,9 @@ function apiError(data) {
  */
 function endLoading() {
     loading = false;
+    $loading.hide();
+    $("#start_address").prop('disabled', false);
+    $("#end_address").prop('disabled', false);
 }
 
 /**
@@ -190,4 +198,7 @@ function endLoading() {
  */
 function startLoading() {
     loading = true;
+    $loading.show();
+    $("#start_address").prop('disabled', true);
+    $("#end_address").prop('disabled', true);
 }
